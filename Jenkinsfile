@@ -23,7 +23,7 @@ pipeline {
                         git config user.name MahmoudG27
 			git config url."https://${USERNAME_CD}:${PASSWORD_CD}@github.com/".insteadOf "https://github.com/"
 			git add .
-                        git commit -m "Done by Jenkins Job change manifest: ${env.FROM_BUILD}"
+                        git commit -m "Done by Jenkins Job change manifest: ${params.FROM_BUILD}"
                         git push https://github.com/MahmoudG27/ArgoCD.git master
                     '''
                 }

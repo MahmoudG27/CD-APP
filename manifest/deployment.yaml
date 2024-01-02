@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: app
-        image: elnabatshy/bake:v${FROM_BUILD}
+        image: elnabatshy/bake:v1
         ports:
         - containerPort: 80
