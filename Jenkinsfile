@@ -18,7 +18,7 @@ pipeline {
                 echo 'Editing'
                 withCredentials([usernamePassword(credentialsId: 'github-cred', usernameVariable: 'USERNAME_CD', passwordVariable: 'PASSWORD_CD')]) {    
 	            sh '''
-			sed -i "s/image: elnabatshy\/bake:v[^:]*$/image: elnabatshy\/bake:${FROM_BUILD}/" manifest/deployment.yaml
+			sed -E -i'' "s/(.*bake:).*/\1${FROM_BUILD}/" manifest/deployment.yaml
 			git config user.email elnabatshy27@gmail.com
                         git config user.name MahmoudG27
 			git config url."https://${USERNAME_CD}:${PASSWORD_CD}@github.com/".insteadOf "https://github.com/"
