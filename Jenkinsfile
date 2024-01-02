@@ -1,21 +1,14 @@
-pipeline {
-    agent any
+node {
+    def app
 
-    parameters {
-        string(name: 'BUILD_NUMBER', defaultValue: '', description: 'Build Number from CI')
+    stage('Clone repository') {
+        checkout scm
     }
 
-    stages {
-        stage('Use Build Number') {
-            steps {
-                echo "Received Build Number: ${params.BUILD_NUMBER}"
-            }
-        }
-
-	stage('Editing Image Version') {            
-            steps {
-                echo 'Editing'
-                withCredentials([usernamePassword(credentialsId: 'github-cred', usernameVariable: 'USERNAME_CD', passwordVariable: 'PASSWORD_CD')]) {    
+    stage('Editing Image Version') {            
+        steps {
+            echo 'Editing'
+            withCredentials([usernamePassword(credentialsId: 'github-cred', usernameVariable: 'USERNAME_CD', passwordVariable: 'PASSWORD_CD')]) {    
 	            sh '''
                         mv manifest/deployment.yaml manifest/tmp.yaml
                         cat manifest/tmp.yaml | envsubst > manifest/deployment.yaml
@@ -31,4 +24,3 @@ pipeline {
             }
         }
     }
-}
