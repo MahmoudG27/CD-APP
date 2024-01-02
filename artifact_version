@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -x
+echo $FROM_BUILD
+sed -E -i'' "s/(.*bake:).*/\1${FROM_BUILD}/" $1
