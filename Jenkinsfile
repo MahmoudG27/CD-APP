@@ -18,7 +18,7 @@ pipeline {
                 echo 'Editing'
                 withCredentials([usernamePassword(credentialsId: 'github-cred', usernameVariable: 'USERNAME_CD', passwordVariable: 'PASSWORD_CD')]) {    
 	            sh '''
-			sh artifact_version_update manifest/deployment.yaml
+			sh artifact_version manifest/deployment.yaml
 			git config user.email elnabatshy27@gmail.com
                         git config user.name MahmoudG27
 			git config url."https://${USERNAME_CD}:${PASSWORD_CD}@github.com/".insteadOf "https://github.com/"
