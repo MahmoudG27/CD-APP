@@ -18,7 +18,7 @@ pipeline {
                 echo 'Editing'
                 withCredentials([usernamePassword(credentialsId: 'github-cred', usernameVariable: 'USERNAME_CD', passwordVariable: 'PASSWORD_CD')]) {    
 	            sh '''
-			sh artifact_version manifest/deployment.yaml
+			sh artifact_version
 			git config user.email elnabatshy27@gmail.com
                         git config user.name MahmoudG27
 			git add manifest/deployment.yaml 
