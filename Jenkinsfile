@@ -1,7 +1,16 @@
 pipeline {
     agent any
 
+    parameters {
+        string(name: 'BUILD_NUMBER', defaultValue: '', description: 'Build Number from Pipeline A')
+    }
+
     stages {
+        stage('Use Build Number') {
+            steps {
+                echo "Received Build Number: ${params.BUILD_NUMBER}"
+            }
+        }
 
 	stage('Editing Image Version') {            
             steps {
@@ -14,7 +23,7 @@ pipeline {
 			git config user.email elnabatshy27@gmail.com
                         git config user.name MahmoudG27
 			git add .
-                        git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'
+                        git commit -m "Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}"
                         git push https://${USERNAME_CD}:${PASSWORD_CD}@github.com/${USERNAME_CD}/CD-APP/ HEAD:master"
                     '''
                 }
