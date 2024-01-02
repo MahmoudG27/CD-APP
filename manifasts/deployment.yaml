@@ -1,15 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sample
-  labels:
-    section: intro
+  name: bake
 spec:
-  # modify replicas according to your case
-  replicas: 4
-  # strategy -- 
+  replicas: 2
   selector:
-    matchLabels: #<- Must match labels of Pod
+    matchLabels: 
       app: sample 
   template:
   # pod definition
@@ -20,6 +16,6 @@ spec:
     spec:
       containers:
       - name: app
-        image: abdennour/sample-app:v1 # v1, v2, blue, green
+        image: elnabatshy/bake:v${BUILD_NUMBER}
         ports:
         - containerPort: 80
