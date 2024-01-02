@@ -21,7 +21,7 @@ pipeline {
 			sh artifact_version manifest/deployment.yaml
 			git config user.email elnabatshy27@gmail.com
                         git config user.name MahmoudG27
-			git add . 
+			git add manifest/deployment.yaml 
                         git commit -m "Done by Jenkins Job changemanifest: ${params.FROM_BUILD}"
                         git push https://${USERNAME_CD}:${PASSWORD_CD}@github.com/${USERNAME_CD}/CD-APP/ HEAD:master"
                     '''
