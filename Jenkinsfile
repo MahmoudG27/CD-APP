@@ -19,7 +19,8 @@ node {
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job change manifest: ${env.FROM_BUILD}'"
                         sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/CD-APP/ master"
-      }
+      		}
+    	    }
+  	}
     }
-  }
 }
