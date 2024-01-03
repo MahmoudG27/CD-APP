@@ -14,11 +14,8 @@ spec:
       labels:
         app: sample
     spec:
-      imagePullSecrets:
-      - name: nexus-registry
       containers:
       - name: app
-        image: http://98.71.95.8:8081/repository/bake-house/bake:v3
-        #image: elnabatshy/bake:v27
+        image: elnabatshy/bake:v27
         ports:
         - containerPort: 80
