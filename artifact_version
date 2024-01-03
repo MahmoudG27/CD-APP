@@ -1,4 +1,5 @@
 #!/bin/bash
-set -x
 
-sed -E -i'' "s/(.*bake:).*/\v${FROM_BUILD}/" $1
+set -x
+echo $FROM_BUILD
+sed -E -i'' "s/(.*bake:v).*/\1${FROM_BUILD}/" $1
