@@ -12,7 +12,7 @@ node {
                         sh "git init"
 			sh "git config user.email elnabatshy27@gmail.com"
                         sh "git config user.name MahmoudG27"
-			sh "git config url."https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/".insteadOf "https://github.com/""
+			sh "git config url.'https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/'.insteadOf 'https://github.com/'"
                         sh "git remote add origin git@github.com:${GIT_USERNAME}/CD-APP.git"
 			sh "cat manifest/deployment.yaml"
 			sh "sh artifact_version manifest/deployment.yaml"
