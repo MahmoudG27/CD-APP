@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 
 echo $FROM_BUILD
-sed -i "s/image: elnabatshy\/bake:v[^:]*$/image: elnabatshy\/bake:v${FROM_BUILD}/" ./manifest/deployment.yaml
+sed -E -i'' "s/(.*bake:v).*/\1${FROM_BUILD}/" $1
