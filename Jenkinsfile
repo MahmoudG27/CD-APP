@@ -12,7 +12,7 @@ node {
 			sh "git config user.email elnabatshy27@gmail.com"
                         sh "git config user.name MahmoudG27"
 			sh "cat manifest/deployment.yaml"
-			sh 'sed -E -i "s/(.*bake:v).*/\1${FROM_BUILD}/" manifest/deployment.yaml'
+			sh "sh artifact_version manifest/deployment.yaml"
                         sh "echo $FROM_BUILD"
                         sh "cat manifest/deployment.yaml"
 			sh "git add ."
