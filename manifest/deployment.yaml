@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: app
-        image: elnabatshy/pizza:v10
+        image: elnabatshy/pizza:v40
         ports:
         - containerPort: 80
