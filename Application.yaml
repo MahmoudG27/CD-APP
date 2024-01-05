@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: bake
+  name: delivery-pizza
   # You'll usually want to add your resources to the argocd namespace.
   namespace: default
 spec:
@@ -15,7 +15,7 @@ spec:
     path: manifest/
   destination:
     server: https://kubernetes.default.svc
-    namespace: bake-app
+    namespace: delivery-pizza
 
   syncPolicy:
     automated:
